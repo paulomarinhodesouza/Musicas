@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Analizar</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style/styleAnalises.css}">
+    <link th:href="@{/css/style/}+${css}+'.css'" rel="stylesheet" type="text/css"/> 
+</head>
+
+<body>
+    <header th:insert="~{navbar.html :: nav}"></header>
+
+    <div style="padding-bottom: 30px;" class="container principal">
+        <div class="row">
+            <h2 class="title-page">Análises:</h2>
+            <form id="formSelectMusic">
+                <div class="col-md-6">
+                    <label style="margin-bottom: 5px; padding-top: 10px;" class="form-label title-page">Selecione a música:</label>
+                    <select id="selectMusic" name="music" class="form-select" ></select>
+                    <button style="margin: 10px;" type="submit" class="btn btn-success enviarAnalise">Selecionar</button>
+                </div>   
+            </form>
+        </div>
+        <div style="background-color: #d5b902; padding-bottom: 10px;" class="container">
+            <h2 id="titleAnalises"></h2>
+            <div id="analises" class="container" style="background-color: rgb(37, 37, 37);">
+            </div>
+        </div>
+    </div>  
+    
+    <div class="modal fade" id="analiseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar análise</h1>
+              <button type="button" class="btn-close btnFechar" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                    <input type="hidden" id="id">
+                    <input type="hidden" name="music" id="musica">
+                    <label for="message-text" class="col-form-label">Edite sua análise:</label>
+                    <textarea name="analysis" id="analise" class="form-control"></textarea>
+                </div>
+              </form>
+                <div style="margin-top: 15px;" id="successMessage" class="alert alert-success"></div>
+                <div style="margin-top: 15px;" id="errorMessage" class="alert alert-danger"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btnFechar" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" id="btnAtualizar" class="btn btn-primary">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="excluirModel" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Excluir análise</h5>
+              <button type="button" class="btn-close btnCancelar" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Tem certeza que deseja excluir essa análise?</p>
+              <input type="hidden" id="idExcluir">
+              <input type="hidden" id="idMusicExcluir">
+              <div style="margin-top: 15px;" id="successMessageExcluir" class="alert alert-success"></div>
+                <div style="margin-top: 15px;" id="errorMessageExcluir" class="alert alert-danger"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" id="btnExcluir" class="btn btn-danger">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script type="text/javascript" th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/scriptAnalises.js}"></script>
+</body>
+
+</html>

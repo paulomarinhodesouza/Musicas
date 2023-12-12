@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Lista</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style/style.css}">
+    <link th:href="@{/css/style/}+${css}+'.css'" rel="stylesheet" type="text/css"/> 
+</head>
+
+<body>
+    <header th:insert="~{navbar.html :: nav}"></header>
+
+    <div class="container principal">
+        <div class="row">
+            <div class="col">
+                <table class="table table-warning">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Ano de lançamento</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableMusic"> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="musicaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar música</h1>
+              <button type="button" class="btn-close btnFechar" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                    <input type="hidden" id="id">
+
+                    <label for="nameMusic" class="form-label">Nome:</label>
+                    <input type="text" id="nameMusic" class="form-control" name="title" required>
+                        
+                    <label for="genderMusic" class="form-label">Gênero:</label>
+                    <input type="text" id="genderMusic" class="form-control" name="gender" required>
+                
+                    <label for="dateMusic" class="form-label">Ano da música:</label>
+                    <input type="number" id="yearMusic" class="form-control" name="year" required>
+                </div>
+              </form>
+                <div style="margin-top: 15px;" id="successMessage" class="alert alert-success"></div>
+                <div style="margin-top: 15px;" id="errorMessage" class="alert alert-danger"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btnFechar" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" id="btnAtualizar" class="btn btn-primary">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="excluirModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Excluir musica</h5>
+              <button type="button" class="btn-close btnCancelar" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Tem certeza que deseja excluir esse musica?</p>
+              <input type="hidden" id="idExcluir">
+              <input type="hidden" id="idMusicExcluir">
+              <div style="margin-top: 15px;" id="successMessageExcluir" class="alert alert-success"></div>
+                <div style="margin-top: 15px;" id="errorMessageExcluir" class="alert alert-danger"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" id="btnExcluir" class="btn btn-danger">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script type="text/javascript" th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/scriptListar.js}"></script>
+</body>
+
+</html>

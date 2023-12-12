@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cadastro</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style/styleCadastro.css}">
+    <link th:href="@{/css/style/}+${css}+'.css'" rel="stylesheet" type="text/css"/> 
+</head>
+
+<body>
+    <header th:insert="~{navbar.html :: nav}"></header>
+
+    <div class="container principal">
+        <h2 class="title-page">Cadastro de Músicas</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-md-7">
+                    <form id="formMusic">
+                        <label for="nameMusic" class="form-label">Nome:</label>
+                        <input type="text" id="nameMusic" class="form-control" name="title" required>
+                        
+                        <label for="genderMusic" class="form-label">Gênero:</label>
+                        <input type="text" id="genderMusic" class="form-control" name="gender" required>
+                
+                        <label for="dateMusic" class="form-label">Ano da música:</label>
+                        <input type="number" id="yearMusic" class="form-control" name="year" required>
+                        
+                        <div style="margin-top: 15px;" id="successMessage" class="alert alert-success"></div>
+                        <div style="margin-top: 15px;" id="errorMessage" class="alert alert-danger"></div>
+
+                        <input type="submit" value="Cadastrar" class="form-submit btn btn-success btnConfirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    <script type="text/javascript" th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/scriptCadastro.js}"></script>
+</body>
+
+</html>

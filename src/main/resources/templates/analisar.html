@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Analizar</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style/style.css}">
+    <link th:href="@{/css/style/}+${css}+'.css'" rel="stylesheet" type="text/css"/> 
+    <link rel="stylesheet" th:href="@{/css/style/styleAnalisar.css}">
+    
+</head>
+
+<body>
+    <header th:insert="~{navbar.html :: nav}"></header>
+    
+    <div class="container principal">
+        
+
+        <div class="container formAnalysis">
+            <form id="formAnalysis">
+                <div class="col-md-6">
+                    <label  class="form-label">Selecione a música:</label>
+                    <select id="selectMusic" name="music" class="form-select" ></select>
+                    <div style="margin-top:20px ">
+                        <label class="form-label">Escreva sua análise:</label>
+                       <textarea type="text" name="analysis" class="form-control" id="analise" rows="5" required></textarea>
+                    </div>
+                    <div style="margin-top: 15px;" id="successMessage" class="alert alert-success"></div>
+                    <div style="margin-top: 15px;" id="errorMessage" class="alert alert-danger"></div>
+                </div>
+                
+                <input type="submit" class="btn btn-success enviarAnalise">
+            </form>
+        </div>
+        
+        
+
+    </div>        
+
+    <script type="text/javascript" th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/scriptAnalisar.js}"></script>
+</body>
+
+</html>
